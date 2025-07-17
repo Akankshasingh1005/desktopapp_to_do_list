@@ -1,7 +1,7 @@
 # Be  Productive!!
 
 A pastel pink to-do list desktop application built with ElectronJS.  
-It features a soft, pixel-style UI with a date display, task tracker, and progress bar — all packed in a cute design.
+It features a soft, pixel-style UI with a date display, task tracker, and progress bar - all packed in a cute design.
 
 ## Learning Purpose
 
