@@ -1,1 +1,18 @@
-# Desktopapp_to_do_list
+# Be  Productive!!
+
+A pastel pink to-do list desktop application built with ElectronJS.  
+It features a soft, pixel-style UI with a date display, task tracker, and progress bar — all packed in a cute design.
+
+## Features
+
+- Day and date display
+- Add, check, and remove tasks
+- Progress bar with live percentage
+- Pixel-style font and soft visuals
+- Desktop-ready using Electron
+
+## Learning Purpose
+
+This project was created while I was learning how to build desktop applications using ElectronJS.  
+I referred to this tutorial repository to understand the basics:  
+[https://github.com/Btelgeuse/DesktopAppTutorial](https://github.com/Btelgeuse/DesktopAppTutorial)
