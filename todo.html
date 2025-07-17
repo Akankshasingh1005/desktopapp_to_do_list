@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Be Productive!!</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="second-screen">
+ 
+      <button id="backBtn" class="back-button">←</button>
+
+  <div class="main-wrapper">
+   
+    <div class="date-card" id="dateCard"></div>
+
+    <div class="progress-box">
+      <div class="progress-label">PROGRESSION &#127812;</div>
+      <div class="progress-bar-wrapper">
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <div class="progress-percent" id="progressPercent">0%</div>
+</div>
+
+    </div>
+
+    <div class="task-input-box">
+      <input type="text" id="taskInput" placeholder="Write your task here... &#127793;" />
+      <button id="addTaskBtn">+</button>
+    </div>
+
+    <ul id="taskList" class="task-list"></ul>
+  
+
+  </div>
+
+  <script>
+    document.getElementById("backBtn").addEventListener("click", () => {
+      window.electronAPI.loadPage("index.html");
+    });
+
+    const dateCard = document.getElementById("dateCard");
+    const today = new Date();
+    const dayName = today.toLocaleDateString(undefined, { weekday: 'long' });
+    const dayNum = today.getDate();
+    const monthName = today.toLocaleDateString(undefined, { month: 'long' });
+
+    dateCard.innerHTML = `
+      <div class="day-name">${dayName}</div>
+      <div class="date-circle">${dayNum}</div>
+      <div class="month-name">${monthName}</div>
+    `;
+
+    const taskInput = document.getElementById("taskInput");
+    const taskList = document.getElementById("taskList");
+    const progressFill = document.getElementById("progressFill");
+
+    document.getElementById("addTaskBtn").addEventListener("click", () => {
+      const text = taskInput.value.trim();
+      if (text !== "") {
+        const li = document.createElement("li");
+        li.classList.add("task-item");
+        li.innerHTML = `
+          <label class="task-label">
+            <input type="checkbox" class="task-checkbox" />
+            <span>${text}</span>
+          </label>
+          <button class="remove-btn"> - </button>
+        `;
+        li.querySelector(".remove-btn").addEventListener("click", () => {
+          li.remove();
+          updateProgress();
+        });
+        taskList.appendChild(li);
+        taskInput.value = "";
+        updateProgress();
+      }
+    });
+
+    taskList.addEventListener("change", updateProgress);
+
+    function updateProgress() {
+        const checkboxes = document.querySelectorAll(".task-checkbox");
+        const total = checkboxes.length;
+        const completed = [...checkboxes].filter(cb => cb.checked).length;
+        const percent = total ? (completed / total) * 100 : 0;
+        progressFill.style.width = percent + "%";
+        document.getElementById("progressPercent").textContent = Math.round(percent) + "%";
+        }
+
+  </script>
+</body>
+
+</html>

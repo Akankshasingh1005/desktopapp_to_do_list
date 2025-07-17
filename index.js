@@ -1,6 +1,5 @@
-const path = require("path");
 const { app, BrowserWindow, ipcMain } = require("electron");
-const fs = require("fs");
+const path = require("path");
 
 let win;
 
@@ -9,15 +8,15 @@ function createWindow() {
     width: 550,
     height: 600,
     webPreferences: {
-      nodeIntegration: false,
-      contextIsolation: true,
       preload: path.join(__dirname, "preload.js"),
+      contextIsolation: true,
     },
+    resizable: false,
   });
 
   win.removeMenu();
   win.loadFile("index.html");
-  
+
   ipcMain.on("load-page", (event, page) => {
     win.loadFile(page);
   });
@@ -25,9 +24,4 @@ function createWindow() {
 
 app.whenReady().then(() => {
   createWindow();
-  app.on("activate", () => {
-    if (BrowserWindow.getAllWindows().length === 0) {
-      createWindow();
-    }
-  });
 });

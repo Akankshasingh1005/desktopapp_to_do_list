@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Be Productive!!</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="start-screen">
+  <div class="title">Make a To do List &#127804; </div>
+  <!-- <img src="notebook1.jpg" class="start-image" /> -->
+  <button id="startBtn" class="start-button">START</button>
+
+  <script>
+    document.getElementById("startBtn").addEventListener("click", () => {
+      window.electronAPI.loadPage("todo.html");
+    });
+  </script>
+</body>
+</html>
