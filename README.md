@@ -31,7 +31,13 @@ npm install
 ```bash
 npm start
 ```
-#### 4. Build a Distributable (Installer)
+#### 4.  Build a Ready-to-Use Desktop Application
+```bash
+npm install --save-dev @electron-forge/cli
+```
+```bash
+npm exec --package=@electron-forge/cli -c "electron-forge import"
+```
 ```bash
 npm run make
 ```
