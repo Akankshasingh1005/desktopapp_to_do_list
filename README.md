@@ -12,7 +12,7 @@ I referred to this tutorial repository to understand the basics:
 <img width="418.5" height="414.75" alt="Screenshot 2025-07-17 170931" src="https://github.com/user-attachments/assets/bf14f445-f480-4cb2-b694-5a965b4d324b" /> <img width="418.5" height="414.75" alt="Screenshot 2025-07-17 170921" src="https://github.com/user-attachments/assets/3a00977b-f78b-45e9-9f70-528878dc1dc3" />
 
 ## How to use it?
-### 1. Clone the Repository 
+#### 1. Clone the Repository 
 To move into the project folder and set it up, use the following commands:
 ```bash
 git clone https://github.com/Akankshasingh1005/desktopapp_to_do_list.git
